@@ -32,7 +32,7 @@ function App() {
 // }
 
 const Root=()=>{
-  const isAuthanticated=!!localStorage.getItem('token')
+  const isAuthanticated=!localStorage.getItem('token')
 
   return isAuthanticated?(
     <Navigate to="/dashboard"/>
