@@ -10,15 +10,27 @@ import {TravelStory} from './src/models/travelStory.models.js'
 import {upload} from './src/utils/multer.js'
 import fs from 'fs';
 import path from 'path';
+import connectDB from './src/dB/index.js';
 
-dotenv.config();
+dotenv.config({
+    path: "./.env"
+});
 import config from "./config.json" assert { type: "json" };
 import e from 'express';
 // import { fileURLToPath } from 'url';
 
+connectDB()
+.then(()=>{
+    console.log(`Database connected successfully port ${process.env.PORT || 8000}`);
+}
+).catch((error)=>{
+    console.log(`Error: ${error}`);
+});
+
 
 // console.log(config.connectionString);
-mongoose.connect(config.connectionString)
+// mongoose.connect(config.connectionString)
+
 
 const app = express();
 const __dirname = path.resolve();
