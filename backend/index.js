@@ -15,9 +15,7 @@ import connectDB from './src/dB/index.js';
 dotenv.config({
     path: "./.env"
 });
-import config from "./config.json" assert { type: "json" };
-import e from 'express';
-// import { fileURLToPath } from 'url';
+
 
 connectDB()
 .then(()=>{
@@ -26,10 +24,6 @@ connectDB()
 ).catch((error)=>{
     console.log(`Error: ${error}`);
 });
-
-
-// console.log(config.connectionString);
-// mongoose.connect(config.connectionString)
 
 
 const app = express();
